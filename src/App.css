@@ -1,1 +1,29 @@
+.navbar{
+    font-size: 1.5em;
+    background-color: rgb(64, 2, 105);
+    color: aliceblue;
+}
 
+.navbar a{
+ color: white;
+ text-decoration: none;
+ padding:5px;
+}
+
+.navbar a:hover{
+    background-color: aliceblue;
+    border-radius: 15px;
+    color: rgb(64, 2, 105);
+    text-decoration:underline;
+   }
+
+.articles-container{
+background-color: rgb(28, 7, 131);
+text-align: center;
+}
+
+.article-cards{
+    padding: 10px;
+    margin: 10px auto;
+    background-color: aliceblue;
+}
