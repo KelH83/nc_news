@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import {getArticles} from '../api'
 import ArticlesList from "./ArticlesList"
+import Spinner from 'react-bootstrap/Spinner';
 
 
 const Articles = () => {
@@ -23,7 +24,10 @@ const Articles = () => {
 
     
     if(isLoading){
-        return <p>Loading....</p>
+        return <div className="loading">
+        <Spinner animation="border" variant="dark" />
+        <p>Loading...</p>
+        </div>
     }
     
 
