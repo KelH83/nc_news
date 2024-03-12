@@ -1,3 +1,33 @@
+/* HEADER */
+
+.banner-container {
+    position: relative;
+    width: 100vw;
+    margin:0px;
+    padding:0px;
+  }
+  
+  .banner-video {
+    width: 100vw;
+    height:30vh;
+    background-color: black;
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 5em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+  
+  .text-overlay h1 {
+    margin-bottom: 0.5em;
+  }
+
 .navbar{
     font-size: 1.5em;
     background-color: rgb(64, 2, 105);
@@ -15,7 +45,22 @@
     border-radius: 15px;
     color: rgb(64, 2, 105);
     text-decoration:underline;
-   }
+}
+
+/* HOME */
+
+h1{
+    font-size: 5em;
+    text-align: center;
+}
+
+
+/* ARTICLES */
+
+.loading{
+    text-align: center;
+    font-size: 2em;
+}
 
 .articles-container{
 background-color: rgb(28, 7, 131);
@@ -27,6 +72,23 @@ text-align: center;
     margin: 10px auto;
     background-color: aliceblue;
 }
+
+.article-cards:hover{
+    background-color: rgb(64, 2, 105);
+    color: aliceblue;
+    border:1px solid white;
+}
+
+.article-cards Button:hover{
+    font-size: 1.25em;
+    transition: 0.5s;
+    transition-timing-function: linear;
+    background-color: aliceblue;
+    color: black;
+
+}
+
+/* SINGLE ARTICLE */
 
 .single-article{
     text-align: center;
@@ -40,19 +102,50 @@ text-align: center;
     font-size: 1.5em;
 }
 
+
 .single-article Button{
     font-size: 1.5em;
     margin-bottom: 5px;
 }
 
-.article-img{
+.single-article img{
     width:30em;
     height: 20em;
     margin:15px auto;
+    padding:0px;
+    border: 2px solid rgb(64, 2, 105);
+    border-radius: 12px;
 }
 
-video {
-    width: 100vw;
-    height: 25vh;
-    background-color: black;
+.interact-buttons{
+    background-color: rgb(64, 2, 105);
+    color:aliceblue;
+    padding: 5px 8px;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+
+/* COMMENTS */
+
+.comments{
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.comments h3{
+    text-align:right;
+    font-size: 1.2em;
+}
+
+.comments p{
+    font-size: 1.3em;
+}
+
+.comments button{
+    background-color: rgb(64, 2, 105);
+    color: aliceblue;
+    width: 4em;
+   margin-left: 90%;
+   margin-bottom: 5px;
+   border-radius: 12px;
 }

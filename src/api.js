@@ -14,3 +14,9 @@ export const getSingleArticle=((article_id) =>{
         return response.data.article
     })
 })
+
+export const getComments=((article_id) =>{
+    return news.get(`articles/${article_id}/comments`).then((response) => {
+        return response.data.comments
+    })
+})

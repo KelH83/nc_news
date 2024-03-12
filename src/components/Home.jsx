@@ -1,7 +1,8 @@
 const Home = () =>{
 return(
     <>
-    <p>Welcome to Northcoders News</p>
+    <h1>Welcome to Northcoders News</h1>
+    <p>Featured articles to be added here</p>
     </>
 )
 }
