@@ -38,3 +38,21 @@ export const decreaseArticleVotes =((article_id) =>{
         return response.data.updatedArticle[0]
     })
 })
+
+export const increaseCommentVotes =((comment_id) =>{
+    const addVotes ={
+        inc_votes: 1,
+    }
+    return news.patch(`comments/${comment_id}`, addVotes).then((response) => {
+        return response.data.updatedComment
+    })
+})
+
+export const decreaseCommentVotes =((comment_id) =>{
+    const removeVotes ={
+        inc_votes: -1,
+    }
+    return news.patch(`comments/${comment_id}`, removeVotes).then((response) => {
+        return response.data.updatedComment
+    })
+})

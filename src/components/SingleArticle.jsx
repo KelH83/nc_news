@@ -48,19 +48,19 @@ const SingleArticle = () => {
     return(
         <>
         <Container fluid className="single-article">
-         <Row>
+         <section>
             <h2>{article.title}</h2>
             <p><strong>Author:</strong> {article.author} 
             <br />
             <strong>Topic:</strong> {article.topic}</p>
-        </Row>
+        </section>
         <Row>
             <img src={article.article_img_url}/>
         </Row>
-        <Row>
+        <section>
             <p>{article.body}</p>
-        </Row>
-        <Row className='article-button-row'>
+        </section>
+        <section className='button-rows'>
             <Col>
                 <button aria-label="Up Vote" className='interact-buttons' onClick={() => upVote(article.article_id)}>👍</button>
                 <p>{article.votes}</p>
@@ -69,7 +69,7 @@ const SingleArticle = () => {
             <button className='interact-buttons' onClick={showComments}>{isVisible ? 'Hide Comments' : 'Show Comments: '} {isVisible ? ' ' :`${article.comment_count}`}</button>
            </Col>
             
-        </Row>
+        </section>
         </Container>
         {isVisible && <Comments article_id={article_id}/>}
         
