@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react"
 import {getArticles} from '../api'
-import ArticlesList from "./ArticlesList"
 import Spinner from 'react-bootstrap/Spinner';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { Link } from "react-router-dom"
 
 
 const Articles = () => {
@@ -11,7 +14,6 @@ const Articles = () => {
 
 
     useEffect(() => {
-        console.log("get topics and articles useEffect");
         getArticles().then((data) => {
             setArticles(data)
             setIsLoading(false)
@@ -32,9 +34,19 @@ const Articles = () => {
     
 
     return(
-        <>
-        <ArticlesList articles = {articles}/>
-        </>
+        <Container  className='articles-container' fluid>
+        <Row>
+        {articles.map((article) => {
+        return (
+            <Col key={article.article_id} className='article-cards'>
+            <img src={article.article_img_url} />
+            <h2>{article.title}</h2>
+            <Link to={`/articles/${article.article_id}`}><button>See more</button></Link>
+            </Col>
+        )
+        })}
+        </Row>
+    </Container>
     )
 }
 
