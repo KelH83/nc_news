@@ -101,19 +101,20 @@ text-align: center;
 
 }
 
-.article-button-row{
+.button-rows{
     display:inline-block;
 }
 
-.article-button-row button{
+.button-rows button{
     display:inline-block;
     margin: 10px 30px;
 }
 
-.article-button-row p{
+.button-rows p{
     display:inline-block;
     margin: auto;
 }
+
 
 /* SINGLE ARTICLE */
 
@@ -144,6 +145,7 @@ text-align: center;
     border-radius: 12px;
 }
 
+
 .interact-buttons{
     background-color: rgb(64, 2, 105);
     color:aliceblue;
@@ -169,10 +171,19 @@ text-align: center;
 }
 
 .comments button{
+    display: inline-block;
     background-color: rgb(64, 2, 105);
     color: aliceblue;
     width: 4em;
    margin-left: 90%;
    margin-bottom: 5px;
    border-radius: 12px;
+}
+
+.comments-button-row button{
+    display:inline-block
+}
+
+.comments-button-row p{
+    display:inline-block
 }
