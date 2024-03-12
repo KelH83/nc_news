@@ -101,6 +101,20 @@ text-align: center;
 
 }
 
+.article-button-row{
+    display:inline-block;
+}
+
+.article-button-row button{
+    display:inline-block;
+    margin: 10px 30px;
+}
+
+.article-button-row p{
+    display:inline-block;
+    margin: auto;
+}
+
 /* SINGLE ARTICLE */
 
 .single-article{

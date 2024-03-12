@@ -20,3 +20,21 @@ export const getComments=((article_id) =>{
         return response.data.comments
     })
 })
+
+export const increaseArticleVotes =((article_id) =>{
+    const addVotes ={
+        inc_votes: 1,
+    }
+    return news.patch(`articles/${article_id}`, addVotes).then((response) => {
+        return response.data.updatedArticle[0]
+    })
+})
+
+export const decreaseArticleVotes =((article_id) =>{
+    const addVotes ={
+        inc_votes: -1,
+    }
+    return news.patch(`articles/${article_id}`, addVotes).then((response) => {
+        return response.data.updatedArticle[0]
+    })
+})
