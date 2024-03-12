@@ -187,3 +187,9 @@ text-align: center;
 .comments-button-row p{
     display:inline-block
 }
+
+.no-comment{
+    font-size:2em;
+    text-align: center;
+    color: red;
+}

@@ -49,9 +49,12 @@ const Comments = ({article_id}) => {
         </div>
     }
 
+    if(commentData.length === 0){
+        return <p className='no-comment'>😔 No comments have been made yet!</p>
+    }
+
     return (
         <>
-            
             {commentData.map((comment) => {
             return (
                 <Row className='comments' key={comment.comment_id}>
