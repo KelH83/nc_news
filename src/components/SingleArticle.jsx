@@ -6,12 +6,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 import Comments from "./Comments";
+import PostComment from "./PostComment";
 
 const SingleArticle = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
     const {article_id} = useParams()
     const [isVisible, setIsVisible] = useState(false);
+    const [commentData, setCommentData]=useState([])
+    const [postCommentIsVisible, setPostCommentIsVisible] = useState(false);
+    const [commentPosted, setCommentPosted] = useState(false);
 
     useEffect(() => {
         getSingleArticle(article_id).then((data) => {
@@ -22,6 +26,10 @@ const SingleArticle = () => {
     
     function showComments(){
         setIsVisible(!isVisible)
+    }
+
+    function postComment(){
+        setPostCommentIsVisible(true)
     }
 
     const upVote = (articleId) => {
@@ -67,12 +75,14 @@ const SingleArticle = () => {
                 <button aria-label="Down Vote" className='interact-buttons' onClick={() => downVote(article.article_id)}>👎</button>   
             
             <button className='interact-buttons' onClick={showComments}>{isVisible ? 'Hide Comments' : 'Show Comments: '} {isVisible ? ' ' :`${article.comment_count}`}</button>
+            <button className='interact-buttons' onClick={postComment}>Post comment</button>
            </Col>
             
         </section>
         </Container>
-        {isVisible && <Comments article_id={article_id}/>}
-        
+        {postCommentIsVisible && <PostComment article_id={article_id} commentData={commentData} setCommentData={setCommentData} setPostCommentIsVisible={setPostCommentIsVisible} setCommentPosted={setCommentPosted}/>}
+        {isVisible && <Comments article_id={article_id} commentData={commentData} setCommentData={setCommentData}/>}
+        {commentPosted && <p className='comment-posted'>Success! Your comment has been posted!</p>}
         </>
      )
 

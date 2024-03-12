@@ -4,9 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 
-const Comments = ({article_id}) => {
+const Comments = ({article_id, commentData, setCommentData}) => {
     const [isLoading, setIsLoading] = useState(true)
-    const [commentData, setCommentData]=useState([])
 
     useEffect(() => {
         getComments(article_id).then((data) => {

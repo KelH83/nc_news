@@ -56,3 +56,9 @@ export const decreaseCommentVotes =((comment_id) =>{
         return response.data.updatedComment
     })
 })
+
+export const postNewComment =((article_id,postBody) =>{
+    return news.post(`articles/${article_id}/comments`, postBody).then((response) => {
+        return response.data.returnedComment[0]
+    })
+})
