@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {getSingleArticle } from "../api";
+import {getSingleArticle, increaseArticleVotes,decreaseArticleVotes } from "../api";
 import { useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,19 +9,33 @@ import Comments from "./Comments";
 
 const SingleArticle = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const [displayArticle, setDisplayArticle] = useState([])
+    const [article, setArticle] = useState({})
     const {article_id} = useParams()
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         getSingleArticle(article_id).then((data) => {
-            setDisplayArticle(data)
+            setArticle(data)
             setIsLoading(false)
         });
     }, []);
     
     function showComments(){
         setIsVisible(!isVisible)
+    }
+
+    const upVote = (articleId) => {
+        setArticle((currArticle) =>{
+                    return {...currArticle, votes: currArticle.votes +1}
+                })
+        increaseArticleVotes(articleId)
+    }
+
+    const downVote = (articleId) => {
+        setArticle((currArticle) =>{
+                    return {...currArticle, votes: currArticle.votes -1}
+                })
+        decreaseArticleVotes(articleId)
     }
     
     if(isLoading){
@@ -35,20 +49,26 @@ const SingleArticle = () => {
         <>
         <Container fluid className="single-article">
          <Row>
-            <h2>{displayArticle.title}</h2>
-            <p><strong>Author:</strong> {displayArticle.author} 
+            <h2>{article.title}</h2>
+            <p><strong>Author:</strong> {article.author} 
             <br />
-            <strong>Topic:</strong> {displayArticle.topic}</p>
+            <strong>Topic:</strong> {article.topic}</p>
         </Row>
         <Row>
-            <img src={displayArticle.article_img_url}/>
+            <img src={article.article_img_url}/>
         </Row>
         <Row>
-            <p>{displayArticle.body}</p>
+            <p>{article.body}</p>
         </Row>
-        <Row>
-            <Col><button className='interact-buttons'>👍{displayArticle.votes}</button></Col>
-            <Col><button className='interact-buttons' onClick={showComments}>{isVisible ? 'Hide Comments' : 'Show Comments: '} {isVisible ? ' ' :`${displayArticle.comment_count}`}</button></Col>
+        <Row className='article-button-row'>
+            <Col>
+                <button aria-label="Up Vote" className='interact-buttons' onClick={() => upVote(article.article_id)}>👍</button>
+                <p>{article.votes}</p>
+                <button aria-label="Down Vote" className='interact-buttons' onClick={() => downVote(article.article_id)}>👎</button>   
+            
+            <button className='interact-buttons' onClick={showComments}>{isVisible ? 'Hide Comments' : 'Show Comments: '} {isVisible ? ' ' :`${article.comment_count}`}</button>
+           </Col>
+            
         </Row>
         </Container>
         {isVisible && <Comments article_id={article_id}/>}
