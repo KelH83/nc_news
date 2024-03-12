@@ -69,8 +69,13 @@ text-align: center;
 
 .article-cards{
     padding: 10px;
-    margin: 10px auto;
+    margin: 20px;
     background-color: aliceblue;
+}
+
+.article-cards img{
+    width:20vw;
+    height: 30vh;
 }
 
 .article-cards:hover{
@@ -79,8 +84,16 @@ text-align: center;
     border:1px solid white;
 }
 
-.article-cards Button:hover{
+.article-cards button{
     font-size: 1.25em;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.article-cards button:hover{
+    font-size: 1.5em;
     transition: 0.5s;
     transition-timing-function: linear;
     background-color: aliceblue;

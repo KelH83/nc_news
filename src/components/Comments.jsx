@@ -8,7 +8,6 @@ const Comments = ({article_id}) => {
     const [commentData, setCommentData]=useState([])
 
     useEffect(() => {
-        console.log("useeffect in comments");
         getComments(article_id).then((data) => {
             setCommentData(data)
             setIsLoading(false)
