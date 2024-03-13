@@ -13,6 +13,7 @@ const Comments = ({article_id, commentData, setCommentData}) => {
     const [disabledThumbDown, setDisabledThumbDown] = useState(false);
     const [deleteDisabled, setDeleteDisabled] =useState(false)
     const [deleteError, setDeleteError] = useState(null)
+    
    
 
 
