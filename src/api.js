@@ -62,3 +62,8 @@ export const postNewComment =((article_id,postBody) =>{
         return response.data.returnedComment[0]
     })
 })
+
+export const deleteComment =((comment_id) =>{
+    return news.delete(`comments/${comment_id}`).then(() => {
+    })
+})

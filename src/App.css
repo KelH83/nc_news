@@ -219,6 +219,15 @@ text-align: center;
     color: red;
 }
 
+#delete-button{
+    text-align: center;
+    color: white;
+    border: 1px solid rgb(64, 2, 105);
+    padding:8px 5px;
+}
+
+
+
 /* FORM */
 
 .post-comment-form{
