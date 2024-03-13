@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { useContext } from "react";
+import { UserContext } from "./User";
 
 
 const Header = () => {
+    const {loggedInUser} = useContext(UserContext)
     return(
         <>
         <Container className='banner-container'>
@@ -18,6 +19,8 @@ const Header = () => {
         <nav className='navbar'>
             <Link to='/'> Home </Link>
             <Link to='/articles'> Articles </Link>
+            <p>Logged in as: {loggedInUser.username}</p>
+            <img src={loggedInUser.avatar_url} />
         </nav>
         </>
     )

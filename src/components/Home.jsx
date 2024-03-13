@@ -1,7 +1,13 @@
+import { useContext } from "react";
+import { UserContext } from "./User";
+
 const Home = () =>{
+
+const {loggedInUser} = useContext(UserContext)
 return(
     <>
-    <h1>Welcome to Northcoders News</h1>
+    <h1>Welcome to Northcoders News <br/>
+        {loggedInUser.name}</h1>
     <p>Featured articles to be added here</p>
     </>
 )
