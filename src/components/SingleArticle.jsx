@@ -16,6 +16,9 @@ const SingleArticle = () => {
     const [commentData, setCommentData]=useState([])
     const [postCommentIsVisible, setPostCommentIsVisible] = useState(false);
     const [commentPosted, setCommentPosted] = useState(false);
+    const [error, setError] = useState(null);
+    const [disabledThumb, setDisabledThumb] = useState(false);
+    const [disabledThumbDown, setDisabledThumbDown] = useState(false);
 
     useEffect(() => {
         getSingleArticle(article_id).then((data) => {
@@ -33,17 +36,36 @@ const SingleArticle = () => {
     }
 
     const upVote = (articleId) => {
+        setDisabledThumb(!disabledThumb)
+        if(disabledThumbDown){
+            setDisabledThumbDown(false)
+        }
         setArticle((currArticle) =>{
                     return {...currArticle, votes: currArticle.votes +1}
                 })
-        increaseArticleVotes(articleId)
+            increaseArticleVotes(articleId).catch((error) =>{
+                setArticle((currArticle) =>{
+                    return {...currArticle, votes: currArticle.votes -1}
+                })
+                setError('Something went wrong with voting, please try again.');
+            })
+        
     }
 
     const downVote = (articleId) => {
+        setDisabledThumbDown(!disabledThumbDown)
+        if(disabledThumb){
+            setDisabledThumb(false)
+        }
         setArticle((currArticle) =>{
                     return {...currArticle, votes: currArticle.votes -1}
                 })
-        decreaseArticleVotes(articleId)
+        decreaseArticleVotes(articleId).catch((error) =>{
+            setArticle((currArticle) =>{
+                return {...currArticle, votes: currArticle.votes +1}
+            })
+            setError('Something went wrong with voting, please try again.');
+        })
     }
     
     if(isLoading){
@@ -70,9 +92,10 @@ const SingleArticle = () => {
         </section>
         <section className='button-rows'>
             <Col>
-                <button aria-label="Up Vote" className='interact-buttons' onClick={() => upVote(article.article_id)}>👍</button>
+                {error ? <p className='vote-error'>{error}</p> : null}
+                <button disabled={disabledThumb} aria-label="Up Vote" className='interact-buttons' onClick={() => upVote(article.article_id)}>👍</button>
                 <p>{article.votes}</p>
-                <button aria-label="Down Vote" className='interact-buttons' onClick={() => downVote(article.article_id)}>👎</button>   
+                <button disabled={disabledThumbDown}aria-label="Down Vote" className='interact-buttons' onClick={() => downVote(article.article_id)}>👎</button>   
             
             <button className='interact-buttons' onClick={showComments}>{isVisible ? 'Hide Comments' : 'Show Comments: '} {isVisible ? ' ' :`${article.comment_count}`}</button>
             <button className='interact-buttons' onClick={postComment}>Post comment</button>
