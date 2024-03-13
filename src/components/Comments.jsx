@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {getComments, increaseCommentVotes, decreaseCommentVotes } from "../api";
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 
 const Comments = ({article_id, commentData, setCommentData}) => {

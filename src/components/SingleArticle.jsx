@@ -98,13 +98,17 @@ const SingleArticle = () => {
                 <button disabled={disabledThumbDown}aria-label="Down Vote" className='interact-buttons' onClick={() => downVote(article.article_id)}>👎</button>   
             
             <button className='interact-buttons' onClick={showComments}>{isVisible ? 'Hide Comments' : 'Show Comments: '} {isVisible ? ' ' :`${article.comment_count}`}</button>
+            <a href='#posting'>
             <button className='interact-buttons' onClick={postComment}>Post comment</button>
+            </a>
            </Col>
             
         </section>
         </Container>
-        {postCommentIsVisible && <PostComment article_id={article_id} commentData={commentData} setCommentData={setCommentData} setPostCommentIsVisible={setPostCommentIsVisible} setCommentPosted={setCommentPosted}/>}
         {isVisible && <Comments article_id={article_id} commentData={commentData} setCommentData={setCommentData}/>}
+        {postCommentIsVisible && <span id='posting'>
+            <PostComment article_id={article_id} commentData={commentData} setCommentData={setCommentData} setPostCommentIsVisible={setPostCommentIsVisible} setCommentPosted={setCommentPosted}/>
+            </span>}
         {commentPosted && <p className='comment-posted'>Success! Your comment has been posted!</p>}
         </>
      )

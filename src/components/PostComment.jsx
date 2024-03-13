@@ -1,20 +1,24 @@
 import { postNewComment } from "../api"
 import { useState } from "react"
+import { useContext } from "react";
+import { UserContext } from "./User";
 
 const PostComment = ({article_id, commentData, setCommentData, setPostCommentIsVisible, setCommentPosted}) =>{
-
+    const {loggedInUser} = useContext(UserContext)
     const[newComment, setNewComment] = useState('')
+    const [disabledPostButton, setDisabledPostButton] = useState(false);
 
     function handleSubmit(event){
+        setDisabledPostButton(true)
         event.preventDefault()
         const postBody={
-            username:'tickle122',
+            username:loggedInUser.username,
             body:newComment
         }
         postNewComment(article_id, postBody).then((data) =>{
             setNewComment('')
             setCommentData((currCommentData) =>{
-                return [data, ...currCommentData]
+                return [...currCommentData, data]
             })
             setPostCommentIsVisible(false)
             setCommentPosted(true)
@@ -35,7 +39,7 @@ return(
         onChange={(event) => setNewComment(event.target.value)} required>
         </textarea>
         <br/>
-        <button type='submit'>Post Comment</button>
+        <button disabled={disabledPostButton} type='submit'>Post Comment</button>
     </form>
 )
 }
