@@ -7,6 +7,7 @@ const PostComment = ({article_id, commentData, setCommentData, setPostCommentIsV
     const {loggedInUser} = useContext(UserContext)
     const[newComment, setNewComment] = useState('')
     const [disabledPostButton, setDisabledPostButton] = useState(false);
+    const [postingError, setPostingError] = useState(null)
 
     function handleSubmit(event){
         setDisabledPostButton(true)
@@ -24,7 +25,9 @@ const PostComment = ({article_id, commentData, setCommentData, setPostCommentIsV
             setCommentPosted(true)
         })
         .catch((error) =>{
-            console.log("Error posting comment: ", error);
+            setDisabledPostButton(false)
+            console.log("Error posting comment: ", error)
+            setPostingError('Something went wrong please try again')
         })
     }
 
@@ -39,6 +42,7 @@ return(
         onChange={(event) => setNewComment(event.target.value)} required>
         </textarea>
         <br/>
+        {postingError ? <p className='posting-error'>{postingError}</p> : null} 
         <button disabled={disabledPostButton} type='submit'>Post Comment</button>
     </form>
 )
