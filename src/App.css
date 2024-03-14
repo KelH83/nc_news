@@ -299,3 +299,11 @@ text-align: center;
     border-radius: 12px;
     padding:5px;
 }
+
+/* ERROR PAGE */
+
+.error-page{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2em;
+}

@@ -18,25 +18,32 @@ const Articles = () => {
     const [order, setOrder] = useState('DESC')
     const [formSortBy, setFormSortBy] = useState('')
     const [formOrder, setFormOrder] = useState('')
+    const [errorMsg, setErrorMsg] = useState(null)
 
 
     useEffect(() => {
-        getArticles(searchTopic,sortBy,order).then((data) => {
+        getArticles(searchTopic,sortBy,order)
+        .then((data) => {
             setArticles(data)
             setIsLoading(false)
         })
        .catch((error) => {
-        console.log("Error getting articles: ", error);
+            setErrorMsg(error)
+            console.log(errorMsg);
        })
     }, [searchTopic,sortBy,order]);
 
     useEffect(() => {
         getTopics().then((data) => {
+            if(data.response !=200){
+                setErrorMsg(data.message)
+            }
             setTopics(data)
             setIsTopicsLoading(false)  
         })
        .catch((error) => {
         console.log("Error getting topics: ", error);
+        setErrorMsg(error)
        })
     }, []);
 
@@ -60,6 +67,10 @@ const Articles = () => {
         <p>Loading...</p>
         </div>
     }
+
+    if(errorMsg){
+        return <p>{errorMsg}</p>
+    }
     
 
     return(
@@ -70,7 +81,7 @@ const Articles = () => {
         {topics.map((topic) => {
             return (
                 <Col className='topics-list' key={topic.slug}>
-                <Link to={`/articles?topic=${topic.slug}`}><button onClick={() => setSearchTopic(topic.slug)}><h2>{topic.slug}</h2>
+                <Link to={`/articles/${topic.slug}`}><button onClick={() => setSearchTopic(topic.slug)}><h2>{topic.slug}</h2>
                 </button></Link>
                 </Col>
             )

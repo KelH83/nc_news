@@ -8,6 +8,7 @@ const PostComment = ({article_id, commentData, setCommentData, setPostCommentIsV
     const[newComment, setNewComment] = useState('')
     const [disabledPostButton, setDisabledPostButton] = useState(false);
     const [postingError, setPostingError] = useState(null)
+    const [errorMsg, setErrorMsg] = useState(null)
 
     function handleSubmit(event){
         setDisabledPostButton(true)
@@ -17,6 +18,9 @@ const PostComment = ({article_id, commentData, setCommentData, setPostCommentIsV
             body:newComment
         }
         postNewComment(article_id, postBody).then((data) =>{
+            if(data.response !=201){
+                setErrorMsg(data.message)
+            }
             setNewComment('')
             setCommentData((currCommentData) =>{
                 return [...currCommentData, data]
@@ -27,10 +31,13 @@ const PostComment = ({article_id, commentData, setCommentData, setPostCommentIsV
         .catch((error) =>{
             setDisabledPostButton(false)
             console.log("Error posting comment: ", error)
-            setPostingError('Something went wrong please try again')
+            alert('Something went wrong please try again')
         })
     }
 
+    if(errorMsg){
+        return <p>{errorMsg}</p>
+    }
 
 return(
     <form className='post-comment-form' onSubmit={handleSubmit}>

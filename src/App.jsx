@@ -6,6 +6,7 @@ import Home from './components/Home'
 import SingleArticle from './components/SingleArticle'
 import { useState } from 'react'
 import { UserContext } from './components/User'
+import ErrorPage from './components/ErrorPage'
 
 
 function App() {
@@ -22,6 +23,10 @@ const [loggedInUser, setLoggedInUser] = useState({
       <Route path='/' element={<Home />} />
       <Route path='/articles' element={<Articles />} />
       <Route path='/articles/:article_id' element={<SingleArticle />} />
+      <Route path='/articles/coding' element={<Articles />} />
+      <Route path='/articles/football' element={<Articles />} />
+      <Route path='/articles/cooking' element={<Articles />} />
+      <Route path="*" element={<ErrorPage />} />
      </Routes>
      </UserContext.Provider>
     </>
