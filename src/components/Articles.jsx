@@ -48,6 +48,8 @@ const Articles = () => {
     }, []);
 
     function handleSubmit(event){
+        console.log(sortBy, " <<sortby");
+        console.log(order, " <order");
         event.preventDefault()
         setSortBy(formSortBy)
         setOrder(formOrder)
@@ -89,7 +91,7 @@ const Articles = () => {
             <Col>
             <form className='sorting-form' onSubmit={handleSubmit}>
             <label htmlFor="sort_by">Sort By: </label>
-            <select name="sort_by" id="sort_by" onChange={(event) => setFormSortBy(event.target.value)}>
+            <select name="sort_by" id="sort_by" onChange={(event) => setFormSortBy(event.target.value)} required>
             <option></option> 
             <option value="created_at">Date created</option>
             <option value="comment_count">Comment count</option>
@@ -97,7 +99,7 @@ const Articles = () => {
             </select>
             
             <label htmlFor="order_by">Order: </label>
-            <select name="order_by" id="order_by" onChange={(event) => setFormOrder(event.target.value)}>
+            <select name="order_by" id="order_by" onChange={(event) => setFormOrder(event.target.value)} required>
             <option></option> 
             <option value="ASC">Ascending</option>
             <option value="DESC">Descending</option>
