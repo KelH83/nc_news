@@ -7,6 +7,7 @@ import SingleArticle from './components/SingleArticle'
 import { useState } from 'react'
 import { UserContext } from './components/User'
 
+
 function App() {
 const [loggedInUser, setLoggedInUser] = useState({
   username:'happyamy2016',
