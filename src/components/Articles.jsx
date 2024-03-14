@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import {getArticles} from '../api'
+import {getArticles, getTopics} from '../api'
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -11,16 +11,28 @@ const Articles = () => {
 
     const [isLoading, setIsLoading] = useState(true)
     const[articles, setArticles] = useState('')
+    const[topics, setTopics] = useState('')
+    const [searchTopic, setSearchTopic] = useState('')
+    const [isTopicsLoading, setIsTopicsLoading] = useState(true)
 
 
     useEffect(() => {
-        getArticles().then((data) => {
+        getArticles(searchTopic).then((data) => {
             setArticles(data)
             setIsLoading(false)
-            
         })
        .catch((error) => {
         console.log("Error getting articles: ", error);
+       })
+    }, [searchTopic]);
+
+    useEffect(() => {
+        getTopics().then((data) => {
+            setTopics(data)
+            setIsTopicsLoading(false)  
+        })
+       .catch((error) => {
+        console.log("Error getting topics: ", error);
        })
     }, []);
 
@@ -31,9 +43,30 @@ const Articles = () => {
         <p>Loading...</p>
         </div>
     }
+
+    if(isTopicsLoading){
+        return <div className="loading">
+        <Spinner animation="border" variant="dark" />
+        <p>Loading...</p>
+        </div>
+    }
     
 
     return(
+        <>
+         <Container fluid>
+            <Row>
+            <p className='topics-instruction'>Please select a topic to see the related articles</p>
+        {topics.map((topic) => {
+            return (
+                <Col className='topics-list' key={topic.slug}>
+                <Link to={`/articles?topic=${topic.slug}`}><button onClick={() => setSearchTopic(topic.slug)}><h2>{topic.slug}</h2>
+                </button></Link>
+                </Col>
+            )
+            })}
+            </Row>
+        </Container>
         <Container  className='articles-container' fluid>
         <Row>
         {articles.map((article) => {
@@ -47,6 +80,7 @@ const Articles = () => {
         })}
         </Row>
     </Container>
+    </>
     )
 }
 

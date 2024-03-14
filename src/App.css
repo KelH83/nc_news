@@ -275,3 +275,23 @@ text-align: center;
     width:50vw;
     margin:10px auto;
 }
+
+/* TOPICS */
+.topics-instruction{
+font-size: 2.5em;
+text-align: center;
+}
+.topics-list{
+    text-align: center;
+}
+
+.topics-list button{
+    text-align: center;
+    font-size: 1.5em;
+    list-style: none;
+    border: 2px solid black;
+    background-color: rgb(64, 2, 105);
+    color: white;
+    border-radius: 12px;
+    padding:5px;
+}

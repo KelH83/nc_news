@@ -3,8 +3,9 @@ import axios from "axios";
 const news = axios.create({baseURL: 'https://northcoders-news-iumv.onrender.com/api/'})
 
 
-export const getArticles=(() =>{
-    return news.get(`articles`).then((response) => {
+export const getArticles=((searchTerm) =>{
+    return news.get(`articles`, { params: { topic: searchTerm } })
+    .then((response) => {
         return response.data.allArticles
     })
 })
@@ -65,5 +66,11 @@ export const postNewComment =((article_id,postBody) =>{
 
 export const deleteComment =((comment_id) =>{
     return news.delete(`comments/${comment_id}`).then(() => {
+    })
+})
+
+export const getTopics =(() =>{
+    return news.get(`topics`).then((response) => {
+        return response.data
     })
 })

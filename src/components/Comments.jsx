@@ -14,8 +14,6 @@ const Comments = ({article_id, commentData, setCommentData}) => {
     const [deleteDisabled, setDeleteDisabled] =useState(false)
     const [deleteError, setDeleteError] = useState(null)
     
-   
-
 
     useEffect(() => {
         getComments(article_id).then((data) => {
