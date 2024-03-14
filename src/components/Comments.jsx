@@ -22,6 +22,7 @@ const Comments = ({article_id, commentData, setCommentData}) => {
 
 
     const upVote = (commentId) => {
+        if(loggedInUser){
         setDisabledThumb(!disabledThumb)
         if(disabledThumbDown){
             setDisabledThumbDown(false)
@@ -49,8 +50,13 @@ const Comments = ({article_id, commentData, setCommentData}) => {
             alert('Something went wrong when voting, please refresh and try again.');
         })
     }
+    else{
+        alert('You must be logged in to vote')
+    }
+    }
 
     const downVote = (commentId) => {
+        if(loggedInUser){
         setDisabledThumbDown(!disabledThumbDown)
         if(disabledThumb){
             setDisabledThumb(false)
@@ -77,6 +83,10 @@ const Comments = ({article_id, commentData, setCommentData}) => {
 
             alert('Something went wrong when voting, please refresh and try again.');
         })
+    }
+    else{
+        alert('You must be logged in to vote')
+    }
     }
 
     const deleteAComment = (commentId) => {
@@ -113,9 +123,12 @@ const Comments = ({article_id, commentData, setCommentData}) => {
                 <p>{comment.body}</p>
                 <h3>{comment.author}</h3>
                 <section className='comments-button-row'> 
-                    {comment.author === loggedInUser.username && (
-                            <button id='delete-button' disabled={deleteDisabled} onClick={() => deleteAComment(comment.comment_id)}>Delete</button>
-                        )}
+                    {loggedInUser &&
+                        comment.author === loggedInUser.username && (
+                                <button id='delete-button' disabled={deleteDisabled} onClick={() => deleteAComment(comment.comment_id)}>Delete</button>
+                            )}
+
+                    
                     <button disabled={disabledThumb} aria-label="Up Vote" onClick={() => upVote(comment.comment_id)}>👍</button>
                     <p>{comment.votes}</p>
                     <button disabled={disabledThumbDown} aria-label="Down Vote" onClick={() => downVote(comment.comment_id)}>👎</button>

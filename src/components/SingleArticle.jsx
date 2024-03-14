@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 import Comments from "./Comments";
 import PostComment from "./PostComment";
+import { useContext } from "react";
+import { UserContext } from "./User";
 
 const SingleArticle = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -19,6 +21,7 @@ const SingleArticle = () => {
     const [disabledThumb, setDisabledThumb] = useState(false);
     const [disabledThumbDown, setDisabledThumbDown] = useState(false);
     const [errorMsg, setErrorMsg] = useState(null)
+    const {loggedInUser} = useContext(UserContext)
 
     useEffect(() => {
         getSingleArticle(article_id).then((data) => {
@@ -38,27 +41,38 @@ const SingleArticle = () => {
     }
 
     function postComment(){
-        setPostCommentIsVisible(true)
+        if(loggedInUser){
+            setPostCommentIsVisible(true)
+        }
+        else{
+            alert('You must be logged in to post')
+        }
     }
 
     const upVote = (articleId) => {
-        setDisabledThumb(!disabledThumb)
-        if(disabledThumbDown){
-            setDisabledThumbDown(false)
+        if(loggedInUser){
+            setDisabledThumb(!disabledThumb)
+            if(disabledThumbDown){
+                setDisabledThumbDown(false)
+            }
+            setArticle((currArticle) =>{
+                        return {...currArticle, votes: currArticle.votes +1}
+                    })
+                increaseArticleVotes(articleId).catch((error) =>{
+                    setArticle((currArticle) =>{
+                        return {...currArticle, votes: currArticle.votes -1}
+                    })
+                    alert('Something went wrong with voting, please refresh and try again.');
+                })
         }
-        setArticle((currArticle) =>{
-                    return {...currArticle, votes: currArticle.votes +1}
-                })
-            increaseArticleVotes(articleId).catch((error) =>{
-                setArticle((currArticle) =>{
-                    return {...currArticle, votes: currArticle.votes -1}
-                })
-                alert('Something went wrong with voting, please refresh and try again.');
-            })
+        else{
+            alert('You must be logged in to vote')
+        }
         
     }
 
     const downVote = (articleId) => {
+        if(loggedInUser){
         setDisabledThumbDown(!disabledThumbDown)
         if(disabledThumb){
             setDisabledThumb(false)
@@ -72,6 +86,10 @@ const SingleArticle = () => {
             })
             alert('Something went wrong with voting, please refresh and try again.');
         })
+    }
+    else{
+        alert('You must be logged in to vote')
+    }
     }
     
     if(isLoading){
