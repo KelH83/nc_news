@@ -98,3 +98,10 @@ export const getTopics =(() =>{
         return response.data
     })
 })
+
+export const getUsers =((username) =>{
+    return news.get(`users/${username}`).then((response) => {
+        return response.data.userData
+    })
+})
+

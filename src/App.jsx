@@ -10,11 +10,7 @@ import ErrorPage from './components/ErrorPage'
 
 
 function App() {
-const [loggedInUser, setLoggedInUser] = useState({
-  username:'happyamy2016',
-  name:'Amy Happy',
-  avatar_url:'https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729'
-})
+const [loggedInUser, setLoggedInUser] = useState(null)
   return (
     <>
     <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser: setLoggedInUser}}>

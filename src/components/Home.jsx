@@ -7,7 +7,7 @@ const {loggedInUser} = useContext(UserContext)
 return(
     <>
     <h1>Welcome to Northcoders News <br/>
-        {loggedInUser.name}</h1>
+    {loggedInUser &&  <p>{loggedInUser.name}</p>}</h1>
     <p>Featured articles to be added here</p>
     </>
 )
