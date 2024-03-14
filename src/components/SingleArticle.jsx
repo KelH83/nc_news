@@ -18,12 +18,19 @@ const SingleArticle = () => {
     const [commentPosted, setCommentPosted] = useState(false);
     const [disabledThumb, setDisabledThumb] = useState(false);
     const [disabledThumbDown, setDisabledThumbDown] = useState(false);
+    const [errorMsg, setErrorMsg] = useState(null)
 
     useEffect(() => {
         getSingleArticle(article_id).then((data) => {
+            if(data.response != 200){
+                setErrorMsg(data.message)
+            }
             setArticle(data)
             setIsLoading(false)
-        });
+        })
+        .catch((error) =>{
+            console.log("Error fetching single article: ", error);
+        })
     }, []);
     
     function showComments(){
@@ -72,6 +79,10 @@ const SingleArticle = () => {
         <Spinner animation="border" variant="dark" />
         <p>Loading...</p>
         </div>
+    }
+
+    if(errorMsg){
+        return <p>{errorMsg}</p>
     }
 
     return(
