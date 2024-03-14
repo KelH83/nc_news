@@ -14,17 +14,21 @@ const Articles = () => {
     const[topics, setTopics] = useState('')
     const [searchTopic, setSearchTopic] = useState('')
     const [isTopicsLoading, setIsTopicsLoading] = useState(true)
+    const [sortBy, setSortBy] = useState('created_at')
+    const [order, setOrder] = useState('DESC')
+    const [formSortBy, setFormSortBy] = useState('')
+    const [formOrder, setFormOrder] = useState('')
 
 
     useEffect(() => {
-        getArticles(searchTopic).then((data) => {
+        getArticles(searchTopic,sortBy,order).then((data) => {
             setArticles(data)
             setIsLoading(false)
         })
        .catch((error) => {
         console.log("Error getting articles: ", error);
        })
-    }, [searchTopic]);
+    }, [searchTopic,sortBy,order]);
 
     useEffect(() => {
         getTopics().then((data) => {
@@ -35,6 +39,12 @@ const Articles = () => {
         console.log("Error getting topics: ", error);
        })
     }, []);
+
+    function handleSubmit(event){
+        event.preventDefault()
+        setSortBy(formSortBy)
+        setOrder(formOrder)
+    }
 
     
     if(isLoading){
@@ -65,6 +75,25 @@ const Articles = () => {
                 </Col>
             )
             })}
+            <Col>
+            <form className='sorting-form' onSubmit={handleSubmit}>
+            <label htmlFor="sort_by">Sort By: </label>
+            <select name="sort_by" id="sort_by" onChange={(event) => setFormSortBy(event.target.value)}>
+            <option></option> 
+            <option value="created_at">Date created</option>
+            <option value="comment_count">Comment count</option>
+            <option value="votes">Votes</option>
+            </select>
+            
+            <label htmlFor="order_by">Order: </label>
+            <select name="order_by" id="order_by" onChange={(event) => setFormOrder(event.target.value)}>
+            <option></option> 
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+            </select>
+            <button type='submit' className='interact-buttons'>Sort</button>
+            </form>
+            </Col>
             </Row>
         </Container>
         <Container  className='articles-container' fluid>

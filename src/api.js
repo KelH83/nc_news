@@ -3,8 +3,12 @@ import axios from "axios";
 const news = axios.create({baseURL: 'https://northcoders-news-iumv.onrender.com/api/'})
 
 
-export const getArticles=((searchTerm) =>{
-    return news.get(`articles`, { params: { topic: searchTerm } })
+export const getArticles=((searchTerm,sort,order) =>{
+    return news.get(`articles`, { params: 
+        { topic: searchTerm,
+            sort_by: sort,
+            order: order} 
+        })
     .then((response) => {
         return response.data.allArticles
     })
