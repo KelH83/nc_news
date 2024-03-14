@@ -8,11 +8,9 @@ import { UserContext } from "./User";
 const Comments = ({article_id, commentData, setCommentData}) => {
     const {loggedInUser} = useContext(UserContext)
     const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState(null);
     const [disabledThumb, setDisabledThumb] = useState(false);
     const [disabledThumbDown, setDisabledThumbDown] = useState(false);
     const [deleteDisabled, setDeleteDisabled] =useState(false)
-    const [deleteError, setDeleteError] = useState(null)
     
 
     useEffect(() => {
@@ -48,7 +46,7 @@ const Comments = ({article_id, commentData, setCommentData}) => {
                 return updatedComments
                     })
 
-            setError('Something went wrong when voting, please try again.');
+            alert('Something went wrong when voting, please refresh and try again.');
         })
     }
 
@@ -77,7 +75,7 @@ const Comments = ({article_id, commentData, setCommentData}) => {
                 return updatedComments
                     })
 
-            setError('Something went wrong when voting, please try again.');
+            alert('Something went wrong when voting, please refresh and try again.');
         })
     }
 
@@ -90,7 +88,8 @@ const Comments = ({article_id, commentData, setCommentData}) => {
             setDeleteDisabled(false)
         })
         .catch((error) =>{
-            setDeleteError('Error deleting comment, please refresh and try again')
+            alert('Error deleting comment, please refresh and try again')
+            
         })
     }
 
@@ -114,8 +113,6 @@ const Comments = ({article_id, commentData, setCommentData}) => {
                 <p>{comment.body}</p>
                 <h3>{comment.author}</h3>
                 <section className='comments-button-row'> 
-                    {error ? <p className='vote-error'>{error}</p> : null} 
-                    {deleteError ? <p className='vote-error'>{deleteError}</p> : null} 
                     {comment.author === loggedInUser.username && (
                             <button id='delete-button' disabled={deleteDisabled} onClick={() => deleteAComment(comment.comment_id)}>Delete</button>
                         )}

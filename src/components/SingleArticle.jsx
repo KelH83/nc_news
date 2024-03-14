@@ -16,7 +16,6 @@ const SingleArticle = () => {
     const [commentData, setCommentData]=useState([])
     const [postCommentIsVisible, setPostCommentIsVisible] = useState(false);
     const [commentPosted, setCommentPosted] = useState(false);
-    const [error, setError] = useState(null);
     const [disabledThumb, setDisabledThumb] = useState(false);
     const [disabledThumbDown, setDisabledThumbDown] = useState(false);
 
@@ -47,7 +46,7 @@ const SingleArticle = () => {
                 setArticle((currArticle) =>{
                     return {...currArticle, votes: currArticle.votes -1}
                 })
-                setError('Something went wrong with voting, please try again.');
+                alert('Something went wrong with voting, please refresh and try again.');
             })
         
     }
@@ -64,7 +63,7 @@ const SingleArticle = () => {
             setArticle((currArticle) =>{
                 return {...currArticle, votes: currArticle.votes +1}
             })
-            setError('Something went wrong with voting, please try again.');
+            alert('Something went wrong with voting, please refresh and try again.');
         })
     }
     
@@ -92,7 +91,6 @@ const SingleArticle = () => {
         </section>
         <section className='button-rows'>
             <Col>
-                {error ? <p className='vote-error'>{error}</p> : null}
                 <button disabled={disabledThumb} aria-label="Up Vote" className='interact-buttons' onClick={() => upVote(article.article_id)}>👍</button>
                 <p>{article.votes}</p>
                 <button disabled={disabledThumbDown}aria-label="Down Vote" className='interact-buttons' onClick={() => downVote(article.article_id)}>👎</button>   
