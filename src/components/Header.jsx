@@ -21,8 +21,6 @@ const Header = () => {
     const [errorMsg, setErrorMsg] = useState(null)
     
     function login(){
-        setloginButtonVisible(false)
-        setlogoutButtonVisible(true)
         getUsers(userName).then((data) => {
             if(data.response !=200){
                 setlogoutButtonVisible(false)
@@ -30,6 +28,8 @@ const Header = () => {
                 setErrorMsg(data.message)
             }
             setLoggedInUser(data)
+            setloginButtonVisible(false)
+            setlogoutButtonVisible(true)
             setUserName('')
         })
         .catch((error) => {

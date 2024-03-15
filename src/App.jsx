@@ -9,6 +9,7 @@ import { UserContext } from './components/User'
 import ErrorPage from './components/ErrorPage'
 import UserCard from './components/UserCard'
 import PostArticle from './components/PostArticle'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -28,6 +29,7 @@ const [loggedInUser, setLoggedInUser] = useState(null)
       <Route path='/articles/post' element={<PostArticle />} />
       <Route path="*" element={<ErrorPage />} />
      </Routes>
+     <Footer />
      </UserContext.Provider>
     </>
   )
