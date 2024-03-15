@@ -219,6 +219,9 @@ text-align: center;
     background-color: rgb(47, 47, 47);
     color: white;
     border: 3px solid rgb(64, 2, 105);
+    transition: 0.3s;
+    transition-timing-function: linear;
+    font-size: 1.1em;
 }
 .article-cards img{
     width:20vw;
@@ -650,4 +653,30 @@ margin-top: 15px;
         font-size:0.75em;
     }
 
+}
+
+/* FOOTER */
+.copyright{
+    text-align: center;
+    font-size: 1.25em;
+    margin-top: 20px;
+    background-color: rgb(64, 2, 105);
+    color: white;
+    padding:5px;
+}
+
+.copyright button{
+    background-color: rgb(64, 2, 105);
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.copyright button:hover{
+    background-color: rgb(47, 47, 47);
+    color: white;
+    font-size:1.2em;
+    transition: 0.3s;
+    transition-timing-function: linear;
 }
