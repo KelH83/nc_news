@@ -76,6 +76,28 @@ body{
     background-color: white;
     
 }
+.modal-title{
+background-color: rgb(64, 2, 105);
+color: white;
+}
+
+.modal-login-button{
+    background-color: rgb(64, 2, 105);
+    border: 1px solid black;
+}
+
+.modal-login-button:hover{
+    background-color: rgb(47, 47, 47);
+    color: white;
+}
+
+.modal-body label{
+    margin:10px;
+}
+
+.modal-body input{
+    margin-left:10px;
+}
 
 /* MEDIA QURIES FOR HEADER */
 
