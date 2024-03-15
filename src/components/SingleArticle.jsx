@@ -114,7 +114,7 @@ const SingleArticle = () => {
             <strong>Topic:</strong> {article.topic}</p>
         </section>
         <Row>
-            <img src={article.article_img_url}/>
+            <img src={article.article_img_url} alt={article.title}/>
         </Row>
         <section>
             <p>{article.body}</p>

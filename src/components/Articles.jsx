@@ -52,7 +52,7 @@ const Articles = () => {
         {articles.map((article) => {
         return (
             <Col key={article.article_id} className='article-cards'>
-            <img src={article.article_img_url} />
+            <img src={article.article_img_url} alt='article image'/>
             <p>{article.title}</p>
             <Link to={`/articles/${article.article_id}`}><button>See more</button></Link>
             </Col>
