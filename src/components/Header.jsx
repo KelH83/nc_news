@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import { useContext, useState } from "react";
 import { UserContext } from "./User";
 import { getUsers } from "../api";
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 
 const Header = () => {
@@ -30,21 +32,30 @@ const Header = () => {
     return(
         <>
         <Container className='banner-container'>
-             <video className='banner-video' autoPlay muted loop playsInline poster="image.jpg">
+             <video className='banner-video' autoPlay muted loop playsInline poster="../bannerposter.jpeg">
              <source src="../newsbanner.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
             </video>
             <p className='banner-text'>News</p>     
+            
         </Container>
 
-        <nav className='navbar'>
+        <Navbar expand="lg" className="navbar">
+        <Container>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav" variant='dark'>
+            <Nav className="nav-links">
             <Link to='/'> Home </Link>
             <Link to='/articles'> Articles </Link>
-            {loggedInUser && <p>Logged in as: {loggedInUser.username}</p>}
-            {loggedInUser && <img src={loggedInUser.avatar_url} />}
+            </Nav>
+            </Navbar.Collapse>
+            {loggedInUser && <p>{loggedInUser.username}</p>}
+            {loggedInUser &&  <Link to={`/users/${loggedInUser.username}`}><img src={loggedInUser.avatar_url} /></Link>}
             {loginButtonVisible &&<button className='login-logout-buttons' onClick={login}>Log in</button>}
             {logoutButtonVisible &&<button className='login-logout-buttons' onClick={logout}>Log out</button>}
-        </nav>
+            
+        </Container>
+        </Navbar>
         </>
     )
 }

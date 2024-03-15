@@ -21,7 +21,7 @@ body{
     font-family: "Newsreader", serif;
     position: absolute;
     top: 50%;
-    left: 75%;
+    left: 65%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
@@ -41,14 +41,15 @@ body{
 .navbar a{
  color: white;
  text-decoration: none;
- padding:5px;
+ padding:8px;
 }
 
 .navbar a:hover{
-    background-color: aliceblue;
-    border-radius: 15px;
-    color: rgb(64, 2, 105);
-    text-decoration:underline;
+    background-color: rgb(47, 47, 47);
+    border-radius: 10px;
+    color: white;
+    border: 1px solid white;
+    padding:7px;
 }
 
 .navbar img{
@@ -65,10 +66,15 @@ body{
 }
 
 .login-logout-buttons:hover{
-    background-color: black;
+    background-color: rgb(47, 47, 47);
     color: aliceblue;
     border-radius: 8px;
     margin-right: 10px;
+}
+
+.navbar-toggler{
+    background-color: white;
+    
 }
 
 /* HOME */
@@ -76,6 +82,11 @@ body{
 h1{
     font-size: 5em;
     text-align: center;
+    margin-top: 10px;
+}
+
+.user-welcome-name{
+    font-size: 0.75em;
 }
 
 .carousel{
@@ -136,29 +147,38 @@ text-align: center;
     background-color: rgb(64, 2, 105);
     color: aliceblue;
     border-radius: 8px;
+    border: 3px solid black;
+    box-shadow: 4.6px 9.1px 9.1px hsl(0deg 0% 0% / 0.36)
 }
 
+.article-cards:hover{
+    background-color: rgb(47, 47, 47);
+    color: white;
+    border: 3px solid rgb(64, 2, 105);
+}
 .article-cards img{
     width:20vw;
     height: 30vh;
     margin-top:10px;
-    border:2px solid aliceblue;
+    margin-bottom:10px;
+    border:2px solid white;
     border-radius: 10px;
 }
 
-.article-cards:hover{
-    background-color: aliceblue;
-    color: rgb(64, 2, 105);
-    border:1px solid white;
-    border: 2px solid rgb(64, 2, 105);
+
+
+.article-cards p{
+    font-size: 1.25em;
 }
+
 
 .article-cards button{
     font-size: 1.25em;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 5px;
     border-radius: 12px;
+    margin-bottom:10px;
 }
 
 .article-cards button:hover{
@@ -196,6 +216,7 @@ text-align: center;
 }
 
 
+
 /* SINGLE ARTICLE */
 
 .single-article{
@@ -205,10 +226,15 @@ text-align: center;
 
 .single-article h2{
     font-size: 3em;
+    margin-top: 12px;
 }
 
 .single-article p{
     font-size: 1.5em;
+}
+
+.article-author a{
+    color: rgb(64, 2, 105);
 }
 
 
@@ -235,39 +261,47 @@ text-align: center;
     border-radius: 12px;
 }
 
+.interact-buttons:hover{
+    background-color: rgb(47, 47, 47);;
+}
+
 /* COMMENTS */
 
 .comments{
-    border: 2px solid black;
-    margin: 10px;
+    border: 3px solid rgb(64, 2, 105);
+    border-radius: 8px;;
+    margin: 10px auto;
+    width:70%;
 }
 
 .comments h3{
     text-align:right;
     font-size: 1.2em;
+    margin: 0px;
+}
+
+.comments a{
+    color: rgb(64, 2, 105);
 }
 
 .comments p{
-    font-size: 1.3em;
+    font-size: 1.4em;
+    margin-top:5px;
+    padding: 0px 5px;
 }
 
 .comments button{
-    display: inline-block;
     background-color: rgb(64, 2, 105);
     color: aliceblue;
     width: 4em;
-   margin-left: 90%;
    margin-bottom: 5px;
    border-radius: 12px;
 }
 
-.comments-button-row button{
-    display:inline-block
+.comments button:hover{
+    background-color: rgb(47, 47, 47);;
 }
 
-.comments-button-row p{
-    display:inline-block
-}
 
 .no-comment{
     font-size:2em;
@@ -281,6 +315,15 @@ text-align: center;
     border: 1px solid rgb(64, 2, 105);
     padding:8px 5px;
 }
+
+
+.comments-button-row {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; 
+    justify-content:space-evenly;
+}
+
 
 
 
@@ -334,24 +377,53 @@ text-align: center;
 
 /* TOPICS */
 .topics-instruction{
-font-size: 2.5em;
+font-size: 2em;
 text-align: center;
-}
-.topics-list{
-    text-align: center;
+margin-top: 15px;
 }
 
-.topics-list button{
-    text-align: center;
-    font-size: 1.5em;
-    list-style: none;
-    border: 2px solid black;
+.topics-button{
     background-color: rgb(64, 2, 105);
     color: white;
+    border: 2px solid black;
     border-radius: 12px;
-    padding:5px;
+    font-size: 1.2em;
+    padding: 15px 15px 0px 15px;
 }
 
+.topics-div{
+    display: inline-flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+
+.topics-button:hover{
+    background-color: rgb(47, 47, 47);
+    color: aliceblue;
+}
+
+.sorting-form{
+    font-size: 1.1em;
+    margin: 5px;
+}
+
+.sorting-form button{
+    margin-left:5px;
+}
+
+.sorting-form button:hover{
+    background-color: black;
+}
+
+#sort_by{
+    margin-left: 5px;
+}
+
+#order_by{
+    margin-left: 5px;
+}
 /* ERROR PAGE */
 
 .error-page{
@@ -359,3 +431,24 @@ text-align: center;
     text-align: center;
     font-size: 2em;
 }
+
+/* USER CARD */
+
+.user-card{
+    width:50vw;
+    text-align: center;
+    background-color: rgb(64, 2, 105);
+    color: white;
+    font-size: 1.75em;
+    margin: 15px auto;
+    border-radius: 12px;
+}
+
+.user-card img{
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    width:200px;
+    height:200px;
+}
+

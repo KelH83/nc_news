@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {getComments, increaseCommentVotes, decreaseCommentVotes, deleteComment } from "../api";
-import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 import { useContext } from "react";
 import { UserContext } from "./User";
+import { Link } from "react-router-dom"
 
 const Comments = ({article_id, commentData, setCommentData}) => {
     const {loggedInUser} = useContext(UserContext)
@@ -119,27 +120,28 @@ const Comments = ({article_id, commentData, setCommentData}) => {
         <>
             {commentData.map((comment) => {
             return (
-                <Row className='comments' key={comment.comment_id}>
+                <Col className='comments' key={comment.comment_id}>
                 <p>{comment.body}</p>
-                <h3>{comment.author}</h3>
+                <hr />
                 <section className='comments-button-row'> 
+                <h3>Posted by: <Link to={`/users/${comment.author}`}><strong>{comment.author}</strong></Link></h3>
                     {loggedInUser &&
                         comment.author === loggedInUser.username && (
-                                <button id='delete-button' disabled={deleteDisabled} onClick={() => deleteAComment(comment.comment_id)}>Delete</button>
+                            <button id='delete-button' disabled={deleteDisabled} onClick={() => deleteAComment(comment.comment_id)}>Delete</button>
                             )}
 
                     
                     <button disabled={disabledThumb} aria-label="Up Vote" onClick={() => upVote(comment.comment_id)}>👍</button>
-                    <p>{comment.votes}</p>
+                    <p>Votes: <strong>{comment.votes}</strong></p>
                     <button disabled={disabledThumbDown} aria-label="Down Vote" onClick={() => downVote(comment.comment_id)}>👎</button>
                 </section>
-                </Row>
+                </Col>
             )
             })}
         </>
         
     )
-
+   
 
 
 
