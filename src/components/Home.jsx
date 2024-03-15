@@ -45,7 +45,7 @@ const article3 = Math.floor(Math.random() * articlesTotal)
 return(
     <>
     <h1>Welcome to Northcoders News <br/>
-    {loggedInUser &&  <p>{loggedInUser.name}</p>}</h1>
+    {loggedInUser &&  <p className='user-welcome-name'>{loggedInUser.name}</p>}</h1>
     <Row>
     <Col>
     <Carousel className='carousel'>

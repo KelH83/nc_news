@@ -9,6 +9,7 @@ import Comments from "./Comments";
 import PostComment from "./PostComment";
 import { useContext } from "react";
 import { UserContext } from "./User";
+import { Link } from "react-router-dom"
 
 const SingleArticle = () => {
     const [isLoading, setIsLoading] = useState(true)
@@ -108,7 +109,7 @@ const SingleArticle = () => {
         <Container fluid className="single-article">
          <section>
             <h2>{article.title}</h2>
-            <p><strong>Author:</strong> {article.author} 
+            <p className='article-author'><strong>Author: <Link to={`/users/${article.author}`}>{article.author}</Link></strong> 
             <br />
             <strong>Topic:</strong> {article.topic}</p>
         </section>

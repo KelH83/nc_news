@@ -53,7 +53,7 @@ const Articles = () => {
         return (
             <Col key={article.article_id} className='article-cards'>
             <img src={article.article_img_url} />
-            <h2>{article.title}</h2>
+            <p>{article.title}</p>
             <Link to={`/articles/${article.article_id}`}><button>See more</button></Link>
             </Col>
         )

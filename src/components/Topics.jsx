@@ -3,7 +3,6 @@ import {getTopics} from '../api'
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { Link } from "react-router-dom"
 
 const Topics = ({setSearchTopic,setSortBy,setOrder}) =>{
@@ -50,15 +49,15 @@ const Topics = ({setSearchTopic,setSortBy,setOrder}) =>{
          <Container fluid>
             <Row>
             <p className='topics-instruction'>Please select a topic to see the related articles</p>
+        <div className='topics-div'>
         {topics.map((topic) => {
             return (
-                <Col className='topics-list' key={topic.slug}>
-                <Link to={`/articles/${topic.slug}`}><button onClick={() => setSearchTopic(topic.slug)}><h2>{topic.slug}</h2>
+                <Link key={topic.slug} to={`/articles/${topic.slug}`}><button className='topics-button' onClick={() => setSearchTopic(topic.slug)}><p>{topic.slug}</p>
                 </button></Link>
-                </Col>
             )
             })}
-            <Col>
+        
+
             <form className='sorting-form' onSubmit={handleSubmit}>
             <label htmlFor="sort_by">Sort By: </label>
             <select name="sort_by" id="sort_by" onChange={(event) => setFormSortBy(event.target.value)} required>
@@ -67,7 +66,7 @@ const Topics = ({setSearchTopic,setSortBy,setOrder}) =>{
             <option value="comment_count">Comment count</option>
             <option value="votes">Votes</option>
             </select>
-            
+
             <label htmlFor="order_by">Order: </label>
             <select name="order_by" id="order_by" onChange={(event) => setFormOrder(event.target.value)} required>
             <option></option> 
@@ -76,7 +75,7 @@ const Topics = ({setSearchTopic,setSortBy,setOrder}) =>{
             </select>
             <button type='submit' className='interact-buttons'>Sort</button>
             </form>
-            </Col>
+            </div>
             </Row>
         </Container>
     </>
