@@ -50,21 +50,21 @@ return(
     <Col>
     <Carousel className='carousel'>
       <Carousel.Item interval={5000}>
-        <img src={articles[article1].article_img_url} />
+        <img src={articles[article1].article_img_url} alt={articles[article1].title}/>
         <Carousel.Caption>
           <h3>{articles[article1].title}</h3>
           <Link to={`/articles/${articles[article1].article_id}`}><button>Read article</button></Link>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={5000}>
-      <img src={articles[article2].article_img_url} />
+      <img src={articles[article2].article_img_url} alt={articles[article2].title}/>
         <Carousel.Caption>
           <h3>{articles[article2].title}</h3>
           <Link to={`/articles/${articles[article2].article_id}`}><button>Read article</button></Link>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={5000}>
-      <img src={articles[article3].article_img_url} />
+      <img src={articles[article3].article_img_url} alt={articles[article3].title}/>
         <Carousel.Caption>
           <h3>{articles[article3].title}</h3>
           <Link to={`/articles/${articles[article3].article_id}`}><button>Read article</button></Link>

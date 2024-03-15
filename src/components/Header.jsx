@@ -33,7 +33,7 @@ const Header = () => {
         <>
         <Container className='banner-container'>
              <video className='banner-video' autoPlay muted loop playsInline poster="../bannerposter.jpeg">
-             <source src="../newsbanner.mp4" type="video/mp4" />
+             <source src="../newsbanner.mp4" type="video/mp4" alt='swirling blue haze over a nighttime world map with the words northcoders spinning in a circle'/>
                     Your browser does not support the video tag.
             </video>
             <p className='banner-text'>News</p>     
@@ -50,7 +50,7 @@ const Header = () => {
             </Nav>
             </Navbar.Collapse>
             {loggedInUser && <p>{loggedInUser.username}</p>}
-            {loggedInUser &&  <Link to={`/users/${loggedInUser.username}`}><img src={loggedInUser.avatar_url} /></Link>}
+            {loggedInUser &&  <Link to={`/users/${loggedInUser.username}`}><img src={loggedInUser.avatar_url} alt='Avatar image' /></Link>}
             {loginButtonVisible &&<button className='login-logout-buttons' onClick={login}>Log in</button>}
             {logoutButtonVisible &&<button className='login-logout-buttons' onClick={logout}>Log out</button>}
             

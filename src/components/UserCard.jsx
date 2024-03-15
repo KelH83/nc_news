@@ -37,7 +37,7 @@ const UserCard = () => {
     return(
         <>
         <section className='user-card'>
-        <img src={user.avatar_url}/>
+        <img src={user.avatar_url} alt='avatar image'/>
         <p>Username: {user.username}</p>
         <p>Name: {user.name}</p>
         </section>
