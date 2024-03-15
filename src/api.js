@@ -105,3 +105,16 @@ export const getUsers =((username) =>{
     })
 })
 
+export const postNewArticle =((postBody) =>{
+    return news.post(`articles`, postBody).then((response) => {
+        console.log(response.data.returnedArticle);
+        console.log(response.status)
+        return response.data.returnedArticle
+    })
+    .catch((error) =>{
+        if(error.response){
+            console.log("Error posting article in API: ", error);
+            return error
+        }
+    })
+})

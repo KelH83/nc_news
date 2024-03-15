@@ -47,6 +47,7 @@ const Header = () => {
             <Nav className="nav-links">
             <Link to='/'> Home </Link>
             <Link to='/articles'> Articles </Link>
+            {loggedInUser &&<Link to='/articles/post'> Post article </Link>}
             </Nav>
             </Navbar.Collapse>
             {loggedInUser && <p>{loggedInUser.username}</p>}

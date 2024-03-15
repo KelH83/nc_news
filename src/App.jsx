@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { UserContext } from './components/User'
 import ErrorPage from './components/ErrorPage'
 import UserCard from './components/UserCard'
+import PostArticle from './components/PostArticle'
 
 
 function App() {
@@ -24,6 +25,7 @@ const [loggedInUser, setLoggedInUser] = useState(null)
       <Route path='/articles/football' element={<Articles />} />
       <Route path='/articles/cooking' element={<Articles />} />
       <Route path='/users/:username' element={<UserCard />} />
+      <Route path='/articles/post' element={<PostArticle />} />
       <Route path="*" element={<ErrorPage />} />
      </Routes>
      </UserContext.Provider>
