@@ -77,6 +77,20 @@ body{
     
 }
 
+/* MEDIA QURIES FOR HEADER */
+
+@media only screen and (max-width: 600px) {
+   .banner-text{
+    font-size: 3em;
+   }
+   .banner-video {
+    height:20vh;
+  }
+
+  }
+
+
+
 /* HOME */
 
 h1{
@@ -128,6 +142,34 @@ h1{
     transition-timing-function: linear;
 }
 
+/* MEDIA QURIES FOR HOME */
+
+@media only screen and (max-width: 600px) {
+    h1{
+        font-size: 2em;
+    }
+
+    .carousel{
+        width:75vw;
+        height:60vw;
+        margin: auto;
+    }
+
+    .carousel h3{
+        margin-bottom: 1px;
+    }
+    .home-text{
+        text-align: center;
+    }
+    .home-text h2{
+        margin-top:10px;
+        font-size: 1.5em;
+    }
+    .home-text p{
+        font-size: 1.2em;
+        padding:8px;
+    }
+   }
 
 /* ARTICLES */
 
@@ -215,7 +257,16 @@ text-align: center;
     display: inline-block;
 }
 
+/* MEDIA QUERIES FOR ARTICLES */
+@media only screen and (max-width: 600px) {
+    .article-cards img{
+        width:30vw;
+        height: 20vh;
+        margin-top:10px;
+        margin-bottom:10px;
+    }
 
+}
 
 /* SINGLE ARTICLE */
 
@@ -263,6 +314,19 @@ text-align: center;
 
 .interact-buttons:hover{
     background-color: rgb(47, 47, 47);;
+}
+
+/* MEDIA QUERIES FOR SINGLE ARTICLE */
+@media only screen and (max-width: 600px) {
+    .single-article h2{
+        font-size: 2em;
+    }
+
+    .single-article Button{
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+
 }
 
 /* COMMENTS */
@@ -324,6 +388,19 @@ text-align: center;
     justify-content:space-evenly;
 }
 
+/* MEDIA QUERIES FOR COMMENTS */
+@media only screen and (max-width: 600px) {
+    .comments p{
+        font-size: 1.1em;
+        margin-top:5px;
+        padding: 0px 5px;
+    }
+    .comments h3{
+        text-align:left;
+        font-size: 1em;
+    }
+
+}
 
 
 
@@ -375,6 +452,14 @@ text-align: center;
     margin:10px auto;
 }
 
+/* MEDIA QUERIES FOR COMMENTS FORM */
+@media only screen and (max-width: 600px) {
+    .comment-posted{
+        font-size:1em;
+    }
+
+}
+
 /* TOPICS */
 .topics-instruction{
 font-size: 2em;
@@ -424,6 +509,24 @@ margin-top: 15px;
 #order_by{
     margin-left: 5px;
 }
+
+/* MEDIA QUERIES FOR  */
+@media only screen and (max-width: 600px) {
+    .topics-instruction{
+        font-size: 1em;
+    }
+    .topics-button{
+        font-size: 0.75em;
+        padding: 15px 15px 0px 15px;
+    }
+
+    .sorting-form{
+        font-size: 0.75em;
+        margin: 5px;
+    }
+
+}
+
 /* ERROR PAGE */
 
 .error-page{

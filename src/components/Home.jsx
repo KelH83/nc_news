@@ -72,7 +72,7 @@ return(
       </Carousel.Item>
     </Carousel>
     </Col>
-    <Col>
+    <Col className='home-text'>
     <h2>Lorem ipsum</h2>
     <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ligula lectus, tempor sed leo sed, facilisis mattis lorem. Praesent leo ante, egestas eu lacus sed, fermentum ultrices ipsum. Vestibulum egestas sem sit amet purus pretium sagittis. Maecenas luctus nisi ut viverra tincidunt. Sed sed pretium nunc. Proin consequat feugiat enim. Praesent at auctor lacus. Proin vitae eros et eros malesuada pharetra et at erat. Nullam finibus risus id consequat posuere. Vestibulum malesuada, nulla sed vehicula scelerisque, libero turpis hendrerit sem, sit amet vehicula nibh ante id leo. Integer facilisis placerat euismod. Duis egestas nulla turpis, vitae efficitur nunc tincidunt sed. Ut hendrerit ut massa consequat dictum. Proin condimentum risus risus, a luctus leo rhoncus sed. Curabitur diam nisi, rutrum quis sapien eget, volutpat sollicitudin nisi.
