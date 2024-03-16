@@ -286,7 +286,7 @@ text-align: center;
 @media only screen and (max-width: 600px) {
     .article-cards img{
         width:30vw;
-        height: 20vh;
+        height: 15vh;
         margin-top:10px;
         margin-bottom:10px;
     }
