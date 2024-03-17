@@ -3,34 +3,10 @@ body{
 }
 
 /* HEADER */
-
-.banner-container {
-    position: relative;
-    width: 100vw;
-    margin:0px;
-    padding:0px;
-  }
-  
-  .banner-video {
-    width: 100vw;
+.banner-image{
+    width:100vw;
     height:30vh;
-    background-color: black;
-  }
-  
-  .banner-text {
-    font-family: "Newsreader", serif;
-    position: absolute;
-    top: 50%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    font-size: 5em;
-  }
-  
-  .text-overlay h1 {
-    margin-bottom: 0.5em;
-  }
+}
 
 .navbar{
     font-size: 1.5em;
@@ -102,11 +78,8 @@ color: white;
 /* MEDIA QURIES FOR HEADER */
 
 @media only screen and (max-width: 600px) {
-   .banner-text{
-    font-size: 3em;
-   }
-   .banner-video {
-    height:20vh;
+  .banner-image{
+    height:20vw;
   }
   .navbar{
     font-size: 1em;
