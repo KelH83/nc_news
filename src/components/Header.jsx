@@ -55,7 +55,7 @@ const Header = () => {
 
     return(
         <>
-            <img className='banner-image' src='./src/assests/ncnewsLArgebanner.png' alt='blue circuits with the words northcoders news in the centre'/>
+            <img className='banner-image' src='dist/assets/ncnewsLArgebanner.png' alt='blue circuits with the words northcoders news in the centre'/>
             
         {/* </Container> */}
 
