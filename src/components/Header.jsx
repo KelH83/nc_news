@@ -56,7 +56,7 @@ const Header = () => {
     return(
         <>
         <Container className='banner-container'>
-             <video className='banner-video' autoPlay muted loop playsInline poster="../NCnewsvid.mp4">
+             <video className='banner-video' autoPlay muted loop playsInline poster="../ncnewsNEWvid.mp4">
              <source src="../newsbanner.mp4" type="video/mp4" alt='swirling blue haze over a nighttime world map with the words northcoders spinning in a circle'/>
                     Your browser does not support the video tag.
             </video>
