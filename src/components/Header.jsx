@@ -74,7 +74,7 @@ const Header = () => {
             {loggedInUser &&<Link to='/articles/post'> Submit article </Link>}
             </Nav>
             </Navbar.Collapse>
-            {loggedInUser && <p>{loggedInUser.username}</p>}
+            {loggedInUser && <p className='header-username'>{loggedInUser.username}</p>}
             {loggedInUser &&  <Link to={`/users/${loggedInUser.username}`}><img src={loggedInUser.avatar_url} alt='Avatar image' /></Link>}
             {loginButtonVisible &&<button className='login-logout-buttons' onClick={handleShow}>Log in</button>}
             {logoutButtonVisible &&<button className='login-logout-buttons' onClick={logout}>Log out</button>}

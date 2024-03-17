@@ -108,7 +108,23 @@ color: white;
    .banner-video {
     height:20vh;
   }
+  .navbar{
+    font-size: 1em;
+  }
 
+  .navbar a:hover{
+    padding:5px;
+  }
+
+  .navbar-toggler{
+    margin-bottom: 8px;
+  }
+  .navbar img{
+    width:50px
+  }
+  .header-username{
+    margin-top:5px;
+  }
   }
 
 
@@ -208,27 +224,24 @@ text-align: center;
 .article-cards{
     padding: 10px;
     margin: 20px;
-    background-color: rgb(64, 2, 105);
-    color: aliceblue;
     border-radius: 8px;
-    border: 3px solid black;
-    box-shadow: 4.6px 9.1px 9.1px hsl(0deg 0% 0% / 0.36)
+    border: 1px solid rgb(64, 2, 105);
 }
 
 .article-cards:hover{
-    background-color: rgb(47, 47, 47);
+    box-shadow: 0px 0px 20px 5px hsl(0deg 0% 0% / 0.5);
+    background-color: rgb(64, 2, 105);
     color: white;
-    border: 3px solid rgb(64, 2, 105);
+    border: 1px solid black;
     transition: 0.3s;
     transition-timing-function: linear;
-    font-size: 1.1em;
 }
 .article-cards img{
-    width:20vw;
-    height: 30vh;
+    width:15vw;
+    height: 20vh;
     margin-top:10px;
     margin-bottom:10px;
-    border:2px solid white;
+    border:2px solid black;
     border-radius: 10px;
 }
 
@@ -249,10 +262,9 @@ text-align: center;
 }
 
 .article-cards button:hover{
-    font-size: 1.5em;
     transition: 0.5s;
     transition-timing-function: linear;
-    background-color: rgb(64, 2, 105);
+    background-color: rgb(47, 47, 47);
     color: white;
 
 }
@@ -284,11 +296,23 @@ text-align: center;
 
 /* MEDIA QUERIES FOR ARTICLES */
 @media only screen and (max-width: 600px) {
+    .article-cards{
+        background-color: rgb(64, 2, 105);
+        color: white;
+
+    }
+    .article-cards p{
+        font-size: 1em;
+    }
     .article-cards img{
-        width:30vw;
-        height: 15vh;
+        width:25vw;
+        height: 10vh;
         margin-top:10px;
         margin-bottom:10px;
+        border: 1px solid white;
+    }
+    .article-cards button{
+        font-size: 1em;
     }
 
 }
@@ -330,26 +354,35 @@ text-align: center;
 
 
 .interact-buttons{
-    background-color: rgb(64, 2, 105);
-    color:aliceblue;
+    background-color: white;
+    color:black;
     padding: 5px 8px;
-    border: 2px solid black;
+    border: 2px solid rgb(64, 2, 105);
     border-radius: 12px;
 }
 
 .interact-buttons:hover{
-    background-color: rgb(47, 47, 47);;
+    background-color: rgb(64, 2, 105);
+    color: white;
 }
 
 /* MEDIA QUERIES FOR SINGLE ARTICLE */
 @media only screen and (max-width: 600px) {
     .single-article h2{
-        font-size: 2em;
+        font-size: 1.75em;
     }
 
     .single-article Button{
         font-size: 1em;
         margin-bottom: 5px;
+    }
+    .single-article img{
+        width:22em;
+        height: 12em;
+    }
+
+    .single-article p{
+        font-size: 1.25em;
     }
 
 }
@@ -380,7 +413,7 @@ text-align: center;
 }
 
 .comments button{
-    background-color: rgb(64, 2, 105);
+    background-color: white;
     color: aliceblue;
     width: 4em;
    margin-bottom: 5px;
@@ -388,7 +421,7 @@ text-align: center;
 }
 
 .comments button:hover{
-    background-color: rgb(47, 47, 47);;
+    background-color: rgb(64, 2, 105);
 }
 
 
@@ -400,9 +433,13 @@ text-align: center;
 
 #delete-button{
     text-align: center;
-    color: white;
-    border: 1px solid rgb(64, 2, 105);
+    color: black;
+    border: 2px solid rgb(64, 2, 105);
     padding:8px 5px;
+}
+
+#delete-button:hover{
+    color: white;
 }
 
 
@@ -445,18 +482,17 @@ text-align: center;
 }
 
 .post-comment-form button{
-    border:3px solid white;
-    background-color: black;
-    color: aliceblue;
-    margin-bottom: 10px;
+    border:2px solid black;
+    background-color: white;
+    color: rgb(64, 2, 105);
+    margin-bottom: 15px;
     border-radius: 12px;
 }
 
 .post-comment-form button:hover{
-    border:3px solid black;
-    background-color: white;
-    color: rgb(64, 2, 105);
-    margin-bottom: 10px;
+    border:2px solid white;
+    background-color: rgb(47, 47, 47);
+    color: aliceblue;
 }
 
 .comment-posted{
@@ -483,6 +519,10 @@ text-align: center;
         font-size:1em;
     }
 
+    .post-comment-form button{
+        font-size: 0.75em;
+    }
+
 }
 
 /* TOPICS */
@@ -493,10 +533,10 @@ margin-top: 15px;
 }
 
 .topics-button{
-    background-color: rgb(64, 2, 105);
-    color: white;
-    border: 2px solid black;
-    border-radius: 12px;
+    background-color: white;
+    color: black;
+    border: 3px solid rgb(64, 2, 105);
+    border-radius: 8px;
     font-size: 1.2em;
     padding: 15px 15px 0px 15px;
 }
@@ -535,14 +575,14 @@ margin-top: 15px;
     margin-left: 5px;
 }
 
-/* MEDIA QUERIES FOR  */
+/* MEDIA QUERIES FOR  TOPICS*/
 @media only screen and (max-width: 600px) {
     .topics-instruction{
         font-size: 1em;
     }
     .topics-button{
         font-size: 0.75em;
-        padding: 15px 15px 0px 15px;
+        padding: 10px 10px 0px 10px;
     }
 
     .sorting-form{
@@ -613,17 +653,17 @@ margin-top: 15px;
 }
 
 .post-article-form button{
+    background-color:white;
+    color: rgb(64, 2, 105);
     font-size: 1.1em;
     width: 100%;
-    background-color: rgb(47, 47, 47);
-    color: white;
     border-radius: 12px;
     margin: 10px auto;
 }
 
 .post-article-form button:hover{
-    background-color:white;
-    color: rgb(64, 2, 105);
+    background-color: rgb(47, 47, 47);
+    color: white;
     transition: 0.3s;
     transition-timing-function: linear;
 }
@@ -646,6 +686,13 @@ margin-top: 15px;
 
 /* MEDIA QUERIES FOR Post ARTICLES */
 @media only screen and (max-width: 600px) {
+    .post-article-h1{
+        font-size: 1.7em;
+    }
+
+    .post-article-form{
+        width: 90vw;
+    }
     .article-posted{
         font-size:1em;
     }
