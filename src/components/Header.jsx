@@ -63,7 +63,6 @@ const Header = () => {
             <p className='banner-text'>News</p>
             
         </Container>
-            {/* <img className='banner-image' src='/ncnewsLArgebanner.png' alt='blue circuits with the words northcoders news in the centre'/> */}
 
         <Navbar expand="lg" className="navbar">
         <Container>
