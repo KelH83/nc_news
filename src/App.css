@@ -8,6 +8,30 @@ body{
     height:30vh;
 }
 
+.banner-container {
+    position: relative;
+    width: 100vw;
+    margin:0px;
+    padding:0px;
+  }
+
+  .banner-video {
+    width: 100vw;
+    height:30vh;
+    background-color: black;
+  }
+
+  .banner-text {
+    font-family: "Newsreader", serif;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 5em;
+  }
+
 .navbar{
     font-size: 1.5em;
     background-color: rgb(64, 2, 105);

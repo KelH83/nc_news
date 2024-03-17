@@ -55,9 +55,15 @@ const Header = () => {
 
     return(
         <>
-            <img className='banner-image' src='/ncnewsLArgebanner.png' alt='blue circuits with the words northcoders news in the centre'/>
+        <Container className='banner-container'>
+            <video className='banner-video' autoPlay muted loop playsInline poster="../ncnewsNEWvid.mp4">
+             <source src="/ncnewsNEWvid.mp4" type="video/mp4" alt='swirling blue haze over a nighttime world map with the words northcoders spinning in a circle'/>
+                    Your browser does not support the video tag.
+            </video>
+            <p className='banner-text'>News</p>
             
-        {/* </Container> */}
+        </Container>
+            {/* <img className='banner-image' src='/ncnewsLArgebanner.png' alt='blue circuits with the words northcoders news in the centre'/> */}
 
         <Navbar expand="lg" className="navbar">
         <Container>
