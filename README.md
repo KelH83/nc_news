@@ -19,6 +19,22 @@ It allows users to browse news articles, view individual articles, vote on artic
 - **API:** https://northcoders-news-iumv.onrender.com/api
 - **Backend repo:** https://github.com/KelH83/backend-project-nc_news
 
+For the live site please use one of the following usernames to log in and vote/post comments etc:
+
+tickle122
+
+weegembump
+
+grumpy19
+
+happyamy2016
+
+cooljmessy
+
+jessjelly
+
+The password is not functional(yet) so you can enter anything
+
 ## Features
 
 - **News Article Retrieval**: The app fetches news articles from a the API.
